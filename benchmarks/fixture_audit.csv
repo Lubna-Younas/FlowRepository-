@@ -1,0 +1,18 @@
+collection,file,category,status,version,events,parameters,datatype,instrument,has_spillover,error
+flowkit,data/100715.fcs,parser_and_workflow_fixture,READABLE,FCS2.0,65016.0,16.0,F,Main Aria (FACSAria),True,
+flowkit,data/109567.fcs,parser_and_workflow_fixture,READABLE,FCS2.0,160074.0,16.0,F,Main Aria (FACSAria),True,
+flowkit,data/113548.fcs,parser_and_workflow_fixture,READABLE,FCS2.0,177102.0,16.0,F,Main Aria (FACSAria),True,
+flowkit,data/8_color_data_set/fcs_files/101_DEN084Y5_15_E01_008_clean.fcs,parser_and_workflow_fixture,READABLE,FCS3.1,290172.0,15.0,F,LSRII,True,
+flowkit,data/8_color_data_set/fcs_files/101_DEN084Y5_15_E03_009_clean.fcs,parser_and_workflow_fixture,READABLE,FCS3.1,283969.0,15.0,F,LSRII,True,
+flowkit,data/8_color_data_set/fcs_files/101_DEN084Y5_15_E05_010_clean.fcs,parser_and_workflow_fixture,READABLE,FCS3.1,285290.0,15.0,F,LSRII,True,
+flowkit,data/gate_ref/data1.fcs,parser_and_workflow_fixture,READABLE,FCS2.0,13367.0,8.0,I,FACSCalibur,False,
+flowkit,data/index_sorted/index_sorted_example.fcs,parser_and_workflow_fixture,READABLE,FCS3.0,384.0,13.0,F,FACSAria-3 (FACSAriaIII),True,
+flowkit,data/noncompliant/data_start_offset_discrepancy_example.fcs,malformed_fcs_expected_rejection,EXPECTED_REJECTION,,,,,,,data_start_offset_discrepancy_example.fcs has a discrepancy in the DATA start byte location: 5555 (HEADER) vs 6081 (TEXT)
+flowkit,data/noncompliant/data_stop_offset_discrepancy_example.fcs,malformed_fcs_expected_rejection,EXPECTED_REJECTION,,,,,,,data_stop_offset_discrepancy_example.fcs has a discrepancy in the DATA end byte location: 6944 (HEADER) vs 6188 (TEXT)
+flowkit,data/simple_diamond_example/test_data_diamond_01.fcs,synthetic_upstream_geometry_fixture,READABLE,FCS3.1,200000.0,2.0,F,unknown,False,
+flowkit,data/simple_line_example/data_set_simple_line_100.fcs,synthetic_upstream_geometry_fixture,READABLE,FCS3.1,100.0,2.0,F,unknown,False,
+flowkit,data/test_comp_example.fcs,parser_and_workflow_fixture,UNEXPECTED_FAILURE,,,,,,,FCS file test_comp_example.fcs reports a data offset that is off by 1. Set `ignore_offset_error=True` to force reading in this file.
+flowkit,data/test_data_2d_01.fcs,synthetic_upstream_geometry_fixture,READABLE,FCS3.1,10000.0,2.0,F,unknown,False,
+peacoqc,inst/extdata/111.fcs,qc_method_example_not_expert_ground_truth,READABLE,FCS3.0,10000.0,22.0,F,LSRII,True,
+peacoqc,inst/extdata/111_Comp_Trans.fcs,qc_method_example_not_expert_ground_truth,READABLE,FCS3.0,9617.0,22.0,F,LSRII,True,
+flowsom,inst/extdata/68983.fcs,mouse_example_with_gates_single_sample,READABLE,FCS3.0,19225.0,18.0,F,unknown,True,
