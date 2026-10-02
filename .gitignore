@@ -1,0 +1,35 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+data/raw/
+data/synthetic/
+data/catalog/flowcyt_landing.html
+reports/
+benchmarks/models/
+.DS_Store
+dist/
+build/
+
+# Local services and workstation state
+.runtime/
+*.log
+*.pid
+.coverage
+htmlcov/
+
+# Credentials and private study material
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+data/private/
+uploads/
+*.[fF][cC][sS]
+*.[wW][sS][pP]
+
+# Generated model and archive artifacts
+*.joblib
+*.pkl
+*.pickle
+*.zip
