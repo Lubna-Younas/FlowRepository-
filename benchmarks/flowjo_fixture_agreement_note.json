@@ -1,0 +1,8 @@
+{
+  "reference": "FlowSOM 68983.fcs and gatingResult.csv pinned public fixture",
+  "events": 19225,
+  "meaning": "Comparison against bundled derived labels, not independent expert or instrument validation",
+  "missing_populations": [
+    "Unlabeled"
+  ]
+}

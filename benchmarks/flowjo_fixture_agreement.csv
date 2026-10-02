@@ -1,0 +1,7 @@
+population,reference_count,reconstructed_count,false_positive,false_negative,event_agreement_fraction
+B cells,2460,2460,0,0,1.0
+CD4 T cells,7487,7482,0,5,0.999739921976593
+CD8 T cells,1407,1407,0,0,1.0
+NK T cells,535,535,0,0,1.0
+NK cells,312,312,0,0,1.0
+gd T cells,1470,1470,0,0,1.0
