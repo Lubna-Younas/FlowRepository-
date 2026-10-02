@@ -1,0 +1,11 @@
+# Fill channels using `flow-workbench inspect`; never guess by name alone.
+instrument: aurora
+signal_state: unmixed
+channels: []
+transform: logicle
+logicle_t: 262144.0
+logicle_w: 0.5
+logicle_m: 4.5
+clusters: 0
+gates: []
+# Transformation defaults are provisional; compare with the lab's FlowJo settings.
