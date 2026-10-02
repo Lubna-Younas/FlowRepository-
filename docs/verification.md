@@ -1,6 +1,6 @@
 # Verification record
 
-This record describes what actually ran on the available macOS 15.5 Intel workstation with a project-local Python 3.12 environment. It is not Windows, Apple Silicon, instrument, assay, or clinical validation. Exact dependencies are recorded in `requirements-tested-macos-py312.txt`; this is an environment snapshot, not a universal platform lock.
+This record describes checks on the available macOS 15.5 Intel workstation with a project-local Python 3.12 environment, plus the GitHub-hosted platform checks recorded below. These are software checks, not instrument, assay, or clinical validation. Exact local dependencies are recorded in `requirements-tested-macos-py312.txt`; this is an environment snapshot, not a universal platform lock.
 
 ## Executed checks
 
@@ -22,6 +22,14 @@ Run `.venv/bin/python -m pytest -q` from the project root. The latest recorded r
 
 The upload-interface regression tests cover a visible disabled button before upload, malformed-file rejection, explicit blocking of zero-event files, synthetic preset settings, reset of an incompatible export declaration when switching to Aurora, a valid upload-to-results run through the real analysis engine, and the public example button. AppTest provides real FCS bytes at the upload boundary because it has no file-uploader setter. These tests establish software behavior, not biological accuracy.
 
+## Repository and platform verification (3 October 2026)
+
+- Published the app, presets, public-data catalog, illustrated documentation and tests to `Lubna-Younas/FlowRepository-` on its existing `Dosage-Compensation` branch. Downloaded the resulting source archive and verified all 45 files against local SHA-256 hashes.
+- The latest local suite passed **19 tests in 27.76 seconds** and built `flow_workbench-0.2.0-py3-none-any.whl` successfully.
+- [GitHub Actions run 2](https://github.com/Lubna-Younas/FlowRepository-/actions/runs/37074050569) passed at commit `cd9dd60500a40d5d4c80c90bfe5f5b306c0591ea`: Python 3.12 on `ubuntu-latest`, `windows-latest` and `macos-latest`. Each job installed dependencies, generated synthetic fixtures, ran engine/GUI tests, checked the CLI and built a wheel.
+- The first Windows run exposed locale-dependent decoding in a report assertion. Report tests, GUI SVG reading and CLI YAML reading now explicitly use UTF-8; the corrected platform matrix passed.
+- Routine CI skips the public-example test when its fixtures are absent. The optional public-fixture CI job was not run; public-data evidence above comes from local checks. Neither CI nor synthetic fixtures establish Aurora/S8 accuracy or desktop-installer compatibility.
+
 ## Guided interface update (version 0.2)
 
 - Added Start here, numbered Analyze steps, a sidebar glossary, explained Results tabs and a separate FlowJo route.
@@ -39,4 +47,4 @@ The upload-interface regression tests cover a visible disabled button before upl
 4. No Aurora/S8 lab FCS, panel/control package, or independent expert labels were supplied. No lab cell-type model is trained or deployed.
 5. FlowCyt's publisher-linked endpoint timed out; the selected Aurora FlowRepository page returned 502. Those cohorts were not downloaded or used.
 6. Established acquisition QC, reference normalization, FlowSOM/UMAP, automated gate proposals, fully graphical gate editing and production job management are not implemented.
-7. Signed desktop installation and clean Windows/macOS platform tests are pending. Large-file memory/runtime benchmarks and color-vision simulations remain release work.
+7. Signed desktop installation and interactive end-to-end checks on Windows/Apple Silicon workstations are pending despite the successful hosted regression matrix. Large-file memory/runtime benchmarks and color-vision simulations remain release work.
