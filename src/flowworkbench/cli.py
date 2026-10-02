@@ -29,7 +29,7 @@ def main():
             print(json.dumps(result,indent=2))
             return int(any(r['status']=='FAIL' for r in result))
         if args.command=="run":
-            result=analyze(args.files,args.output,yaml.safe_load(args.config.read_text()),args.sample_sheet)
+            result=analyze(args.files,args.output,yaml.safe_load(args.config.read_text(encoding="utf-8")),args.sample_sheet)
             print(f"Report: {(args.output/'report.html').resolve()}\nStatus: {result['status']}")
         elif args.command=="flowjo":
             from .flowjo import import_workspace

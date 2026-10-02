@@ -59,7 +59,7 @@ def remember_result(output, summary, config, label):
         "config": config, "input_label": label,
         "counts": pd.read_csv(output / "tables/event_counts.csv"),
         "frequencies": pd.read_csv(output / "tables/population_frequencies.csv"),
-        "figures": {p.name: p.read_text() for p in sorted((output / "figures").glob("*.svg"))},
+        "figures": {p.name: p.read_text(encoding="utf-8") for p in sorted((output / "figures").glob("*.svg"))},
     }
 
 
