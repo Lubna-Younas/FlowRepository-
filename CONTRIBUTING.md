@@ -33,7 +33,7 @@ Gate/reference comparison tests should report meaningful population and event-le
 
 `.github/workflows/tests.yml` configures Python 3.12 jobs on GitHub-hosted Linux, Windows and macOS. Routine jobs generate synthetic data, run regression tests and build a wheel. They use the project's dependency constraints rather than the single-workstation snapshot.
 
-A manual dispatch option enables the approximately 80 MiB public-fixture download on a separate Linux job, followed by the tests and strict fixture audit. Network availability can affect that job. A successful workflow is software evidence; it is not lab-panel or clinical validation. Cross-platform support is not confirmed until those jobs have actually passed.
+A manual dispatch option enables the approximately 80 MiB public-fixture download on a separate Linux job, followed by the tests and strict fixture audit. Network availability can affect that job. The [Python 3.12 matrix passed on all three platforms](https://github.com/Lubna-Younas/FlowRepository-/actions/runs/37074050569) at commit `cd9dd60`; the optional public-fixture job was not run. A successful workflow is software evidence; it is not lab-panel, desktop-installer or clinical validation.
 
 Use `requirements-tested-macos-py312.txt` only as a record of the original workstation environment, not as a universal platform lock.
 

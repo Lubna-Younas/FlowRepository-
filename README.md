@@ -12,7 +12,7 @@ Flow Workbench helps colleagues inspect FCS files, review acquisition quality, a
 
 ## Quick start
 
-Use **Python 3.12** for the closest match to the tested environment. Installation requires internet access and compatible dependency wheels. The package declares Python 3.11–3.14 support, but those combinations and all operating systems have not yet been validated. The existing verification was performed on macOS Intel with Python 3.12.
+Use **Python 3.12** for the closest match to the tested environment. Installation requires internet access and compatible dependency wheels. Python 3.12 installation, regression tests, CLI checks and wheel builds passed on GitHub-hosted Linux, Windows and macOS. Public-data analysis and the browser walkthrough were checked on macOS Intel. Other declared Python versions (3.11, 3.13 and 3.14), desktop installers and Aurora/S8 lab workflows remain unvalidated.
 
 ### 1. Get the project
 
@@ -150,7 +150,7 @@ On Windows, replace `.venv/bin/python` with `.venv\Scripts\python.exe` and use `
 
 The last local verification passed **19 tests** with public fixtures present. Without downloaded public fixtures, the public-example UI test is skipped. See the [verification record](docs/verification.md) for exact scope and open discrepancies.
 
-A GitHub Actions workflow is supplied for Python 3.12 on Linux, Windows and macOS. It is a test configuration, not evidence that those platforms have passed. Public-data checks are optional through manual workflow dispatch. See [Contributing](CONTRIBUTING.md).
+A [GitHub Actions run passed on Linux, Windows and macOS](https://github.com/Lubna-Younas/FlowRepository-/actions/runs/37074050569) with Python 3.12 on 3 October 2026. It checked installation, regression tests, the CLI and wheel builds at commit `cd9dd60`. The public-example test is skipped in routine CI because public fixtures are downloaded only for the optional manual job; that job was not run in this verification. These checks establish software behavior, not instrument or biological validation. See [Contributing](CONTRIBUTING.md).
 
 ## Command-line analysis
 
