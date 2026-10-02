@@ -165,8 +165,8 @@ def test_recoloring_preserves_analysis_and_all_schemes_export(tmp_path):
     for key, palette in PALETTES.items():
         config=recolor_report(out,key)
         assert config["palette"]==key
-        assert palette["name"] in unescape((out/"report.html").read_text())
-        assert palette["colors"][0].lower() in (out/"figures/event_counts.svg").read_text().lower()
+        assert palette["name"] in unescape((out/"report.html").read_text(encoding="utf-8"))
+        assert palette["colors"][0].lower() in (out/"figures/event_counts.svg").read_text(encoding="utf-8").lower()
         assert (out/"figures/event_counts.pdf").read_bytes().startswith(b"%PDF")
         assert all(p.read_bytes()==contents for p,contents in original.items())
     assert all(not change["analysis_recomputed"] for change in json.loads((out/"metadata/presentation_history.json").read_text()))
