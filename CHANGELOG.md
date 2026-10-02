@@ -7,6 +7,7 @@ This records implemented source changes. A version heading does not imply a publ
 - Prepare repository-facing installation and workflow documentation, contribution guidance, issue/PR templates, and GitHub Actions test configuration.
 - Exclude runtime state, private data, generated reports and model artifacts from Git.
 - Require the tested Streamlit API generation for the current interface.
+- Read SVG figures, YAML configurations and report-test text explicitly as UTF-8 so Windows locale defaults do not corrupt non-ASCII labels.
 
 ## 0.2.0 — Guided interface
 
