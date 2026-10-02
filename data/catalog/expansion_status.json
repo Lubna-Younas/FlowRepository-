@@ -1,0 +1,17 @@
+{
+  "FlowCyt": {
+    "url": "https://cuicloud.unige.ch/index.php/s/55PHBLEynrp5pN8",
+    "status": "timeout",
+    "downloaded": false
+  },
+  "Aurora_OMIP_FR_FCM_Z2QT": {
+    "url": "https://flowrepository.org/id/FR-FCM-Z2QT",
+    "status": "502 via web fetch",
+    "downloaded": false
+  },
+  "HDCytoData": {
+    "url": "https://bioconductor.org/packages/release/data/experiment/html/HDCytoData.html",
+    "status": "catalog reviewed, no dataset download attempted",
+    "downloaded": false
+  }
+}
