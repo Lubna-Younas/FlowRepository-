@@ -1,0 +1,12 @@
+# Native FCS 3.2 is blocked until a validated reader/adapter is available.
+# For a verified FCS 3.1 export select ONLY one unmixed fluorescence parameter set.
+# Exclude raw detectors, imaging descriptors, and -H/-W/-T signals from clustering.
+instrument: s8
+signal_state: unmixed
+channels: []
+transform: logicle
+logicle_t: 262144.0
+logicle_w: 0.5
+logicle_m: 4.5
+clusters: 0
+gates: []

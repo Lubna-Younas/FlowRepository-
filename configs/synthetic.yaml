@@ -1,0 +1,15 @@
+instrument: generic
+signal_state: synthetic
+channels: [MarkerA, MarkerB]
+transform: arcsinh
+cofactor: 150.0
+clusters: 2
+seed: 42
+gates:
+  - name: rare_proxy
+    parent: all
+    reviewed: true
+    type: rectangle
+    bounds:
+      MarkerA: [3000, null]
+      MarkerB: [3000, null]

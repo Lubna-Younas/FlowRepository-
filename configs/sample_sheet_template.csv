@@ -1,0 +1,2 @@
+sample,subject_id,condition,batch,panel_id,instrument,role
+REPLACE_WITH_FILENAME.fcs,REPLACE_SUBJECT,REPLACE_CONDITION,REPLACE_BATCH,REPLACE_PANEL,aurora,biological
