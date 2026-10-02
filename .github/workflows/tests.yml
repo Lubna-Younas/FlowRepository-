@@ -1,0 +1,75 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      public_data:
+        description: Download and test the pinned public cytometry fixtures (about 80 MiB)
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-and-ui:
+    name: Python 3.12 / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    env:
+      MPLBACKEND: Agg
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: "false"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install app and test dependencies
+        run: python -m pip install -e ".[dev]"
+      - name: Generate synthetic stress fixtures
+        run: python scripts/make_synthetic_data.py
+      - name: Run engine and GUI regression tests
+        run: python -m pytest -q
+      - name: Check CLI entry point
+        run: python -m flowworkbench.cli --help
+      - name: Build the distributable wheel
+        run: python -m pip wheel --no-deps --wheel-dir dist .
+
+  public-fixtures:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.public_data }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MPLBACKEND: Agg
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: "false"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - run: python -m pip install -e ".[dev]"
+      - name: Download and verify the pinned catalog
+        run: python scripts/download_data.py
+      - name: Run tests with public examples available
+        run: python -m pytest -q
+      - name: Record strict FCS fixture audit
+        run: python scripts/audit_fixtures.py
